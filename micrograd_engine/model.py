@@ -41,18 +41,17 @@ xs = [
 ]
 ys = [1.0, -1.0, -1.0, 1.0] 
 
-# for i in range(5000):
-#     ypred=[model(x) for x in xs ]
-#     loss=sum((yt-yp)**2 for yt,yp in zip(ys,ypred))
-#     for p in model.parameter():
-#         p.grad=0
-#     loss.backward()
-#     for p in model.parameter():
-#         p.data += -0.05 * p.grad
-#     print(f"trial {i} loss-->{loss.data}")
+for i in range(5000):
+    ypred=[model(x) for x in xs ]
+    loss=sum((yt-yp)**2 for yt,yp in zip(ys,ypred))
+    for p in model.parameter():
+        p.grad=0
+    loss.backward()
+    for p in model.parameter():
+        p.data += -0.05 * p.grad
+    print(f"trial {i} loss-->{loss.data}")
 
-# print(f"Predictions: {[y.data for y in ypred]}")
+print(f"Predictions: {[y.data for y in ypred]}")
 
-# loss = sum((yout - ygt)**2 for ygt, yout in zip(ys, ypred))
-# print(f"Initial Loss: {loss.data}")
-print("hi")
+loss = sum((yout - ygt)**2 for ygt, yout in zip(ys, ypred))
+print(f"Initial Loss: {loss.data}")
