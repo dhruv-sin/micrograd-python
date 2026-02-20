@@ -41,7 +41,7 @@ xs = [
 ]
 ys = [1.0, -1.0, -1.0, 1.0] 
 
-for i in range(5000):
+for i in range(10000):
     ypred=[model(x) for x in xs ]
     loss=sum((yt-yp)**2 for yt,yp in zip(ys,ypred))
     for p in model.parameter():
@@ -54,4 +54,4 @@ for i in range(5000):
 print(f"Predictions: {[y.data for y in ypred]}")
 
 loss = sum((yout - ygt)**2 for ygt, yout in zip(ys, ypred))
-print(f"Initial Loss: {loss.data}")
+print(f"Final Loss: {loss.data}")
